@@ -1,0 +1,28 @@
+<div>
+	<div class="well">
+		<h1 class="text-center">Cadastrar Produto</h1>
+
+		<form method="post" role="form" ng-submit="salvar()">
+			<fieldset ng-disabled="salvandoCategoriaFlag">
+				<div class="form-group" ng-class="{'has-error':erros.nome}">
+					<label for="nomeInput" class="control-label">Nome </label> <input
+						id="nomeInput" type="text" class="form-control"
+						ng-model="categoria.nome" /> <span class="help-block">{{erros.nome}}</span>
+				</div>
+				<div class="form-group" ng-class="{'has-error':erros.tipo}">
+					<label for="tipoInput" class="control-label">Tipo </label> <input
+						id="tipoInput" type="text" class="form-control"
+						ng-model="categoria.tipo" /> <span class="help-block">{{erros.tipo}}</span>
+				</div>
+				<div class="form-group" ng-class="{'has-error':erros.preco}">
+					<label for="precoInput" class="control-label">Preco </label> <input
+						id="precoInput" type="text" class="form-control"
+						ng-model="categoria.preco" /> <span class="help-block">{{erros.preco}}</span>
+				</div>
+				<button type="submit" class="btn btn-success">Criar</button>
+				<button type="reset" class="btn btn-warning">Limpar</button>
+				<img src="img/ajax-loader.gif" ng-show="salvandoCategoriaFlag" />
+			</fieldset>
+		</form>
+	</div>
+</div>

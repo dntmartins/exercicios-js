@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Site Cafeteira</title>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+
+<link rel="stylesheet" type="text/css" href="css/estilos.css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/categoria-app.js"></script>
+<script src="js/categoria-servicos-real.js"></script>
+<script src="js/categoria-components.js"></script>
+</head>
+<body>
+	<header>
+		<img id="banner" src="img/banner_cafe.png">
+		<div class="page-header">
+			<h1 id="titulo">
+				Seu café, <small>em qualquer lugar!</small>
+			</h1>
+		</div>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<img id="beans" src="img/beans.png">
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="index.html">Principal <span class="sr-only">(current)</span></a></li>
+						<li><a href="#">Nossa História</a></li>
+						<li class="active"><a href="cadastrar_produtos.html">Nossos
+								produtos</a></li>
+						<li><a href="#">Contato</a></li>
+						<li><a href="#">Trabalhe Conosco</a></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-expanded="false">Localização<span
+								class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+								<li class="divider"></li>
+								<li><a href="#">One more separated link</a></li>
+							</ul></li>
+					</ul>
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" id="form-main-search" class="form-control"
+								placeholder="Pesquise no site...">
+						</div>
+						<button type="submit" class="btn btn-default">Enviar</button>
+					</form>
+
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+	</header>
+	<section>
+		<div class="container-fluid">
+			<div class="row" ng-app="categoria-app" ng-controller="CategoriaCtrl">
+				<div class="col-md-12">
+
+					<categoria-form salvar-categoria="adicionarCategoria(categoria)"></categoria-form>
+
+					<hr>
+					<h2>Lista de Categorias</h2>
+					<categoria-tabela categorias="categorias"></categoria-tabela>
+				</div>
+				<center>
+					<ul style="text-aling: center" class="pagination">
+						<li><a href="#" aria-label="Previous"> <span
+								aria-hidden="true">&laquo;</span>
+						</a></li>
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#" aria-label="Next"> <span
+								aria-hidden="true">&raquo;</span>
+						</a></li>
+					</ul>
+				</center>
+			</div>
+	</section>
+	<footer>
+		‎
+		<div id="copyR">© Copyright 2013 | Todos os direitos reservados</div>
+	</footer>
+</body>
+</html>

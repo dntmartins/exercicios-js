@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<body>
+<img  src="img/pic_bulbon.gif" width="100px" height="180px">
+<img   src="img/pic_bulboff.gif" width="100px" height="180px">
+<img  src="img/pic_bulbon.gif" width="100px" height="180px">
+<img   src="img/pic_bulboff.gif" width="100px" height="180px">
+<img  src="img/pic_bulbon.gif" width="100px" height="180px">
+<img   src="img/pic_bulboff.gif" width="100px" height="180px">
+<img  src="img/pic_bulbon.gif" width="100px" height="180px">
+<img   src="img/pic_bulboff.gif" width="100px" height="180px">
+<img  src="img/pic_bulbon.gif" width="100px" height="180px">
+<img   src="img/pic_bulboff.gif" width="100px" height="180px">
+<img  src="img/pic_bulbon.gif" width="100px" height="180px">
+<img   src="img/pic_bulboff.gif" width="100px" height="180px">
+<script>
+
+
+function construtorObs() {
+
+    var observer = {};
+    var listaDeObs = [];
+	
+    function addListener (obs) {
+        listaDeObs.push(obs);
+    };
+
+    function execEvent() {
+        for (var i = 0; i < listaDeObs.length; i++) {
+            var funcObs = listaDeObs[i];
+            funcObs.toggle();
+        }
+    }
+	
+	observer.addListener = addListener;
+    observer.execEvent = execEvent;
+    return observer;
+}
+
+var obs = construtorObs();
+
+
+function Lampada(obj){
+	this.lampada = obj;
+	this.toggle = function (){
+		if (this.lampada.src.match("bulbon")) {
+          this.lampada.src = "img/pic_bulboff.gif";
+
+        } else {
+          this.lampada.src = "img/pic_bulbon.gif";
+        }
+	}
+}
+
+
+var listaDeLampadas = document.getElementsByTagName("img");
+var lampada;
+var lampadaReference;
+var nodeList = Array.prototype.slice.call(listaDeLampadas);
+for(lampadaReference of nodeList){
+	obs.addListener(new Lampada(lampadaReference));
+}
+
+</script>
+<br>
+<button onclick="obs.execEvent();">Alternar luzes</button>
+
+</body>
+</html>
